@@ -1,13 +1,14 @@
 import components.java.classes.Driver;
 import components.java.classes.pages.RTP;
 
+import java.net.MalformedURLException;
 import java.util.Dictionary;
 import java.util.Hashtable;
 
 public class Main {
     public static Dictionary<String, String> flags = new Hashtable<>();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MalformedURLException {
         //Section: extracting CLI arguments
         for (int i = 0; i < args.length; i++) {
             if ("-c".equals(args[i]) || "--ChromePath".equals(args[i])) {

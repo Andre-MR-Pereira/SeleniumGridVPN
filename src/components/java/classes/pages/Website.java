@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import java.net.MalformedURLException;
 import java.util.List;
 
 public class Website {
@@ -19,7 +20,7 @@ public class Website {
 
     public static String COOKIES_SELECTOR;
 
-    public Website(Driver driver, String site) {
+    public Website(Driver driver, String site) throws MalformedURLException {
         website = driver.setSiteAndGetWebDriver(site);
     }
 
@@ -39,7 +40,7 @@ public class Website {
         website.get(DOMAIN);
     }
 
-    public void scrollPageDown(WebElement element){
+    public void scrollPage(WebElement element){
         Actions actions = new Actions(website);
         actions.moveToElement(element);
     }

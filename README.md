@@ -9,25 +9,43 @@ Download selenium jar and selenium server jar files from https://www.selenium.de
 - **In IntelliJ, go to File -> Project Structure -> Libraries -> + -> Search for org.junit.jupiter:junit-jupiter:5.8.1 .**
 
 Like so:
-![alt text](Assets/junit_lib.PNG)
+>![alt text](Assets/junit_lib.PNG)
 
 ## Usage
 ### Flags
-Add flags to the execution configuration by going to Run -> Edit Configurations -> And changing the CLI arguments field, separating 
-1. -c/--ChromePath: Path to the Chrome Drivers (chromedriver)
-2. -f/--FirefoxPath: Path to the Firefox Drivers (geckodriver)
-3. -v/--VPN: Status of the VPN connection:
-   - 1/true/On: The VPN connection is active
-   - 0/false/Off: The VPN connection is disabled
+#### Values
+>1. -c/--ChromePath: Path to the Chrome Drivers (chromedriver)
+>2. -f/--FirefoxPath: Path to the Firefox Drivers (geckodriver)
+>3. -v/--VPN: Status of the VPN connection:
+>   - true: The VPN connection is active
+>   - false: The VPN connection is disabled
+>4. [Optional Flag] Port: Environment variable that can be set to change the port Selenium will be listening on to. Defaults to 4444.
+#### Main
+Add flags to the execution configuration by going to Run -> Edit Configurations -> Application -> And changing the CLI arguments field
 
-Example: *-ChromePath "Path to Chrome driver executable" -FirefoxPath "Path to Firefox driver executable" -VPN 0*
-![alt text](Assets/runConfigs.PNG)
+Example: *-ChromePath "Path to Chrome driver executable" -FirefoxPath "Path to Firefox driver executable" -VPN false*
+>![alt text](Assets/runConfigs.PNG)
 
-### Selenium Grid
-Opening hub for selenium:
+#### JUnit Tests
+Add flags to the execution configuration by going to Run -> Edit Configurations -> JUnit -> And changing the environment variables field, like so:
 
-**java -jar selenium-server-4.14.1.jar hub**
+Example: ChromePath=Path to Chrome driver executable;FirefoxPath=Path to Firefox driver executable;VPN=false
+>![alt text](Assets/junitConfigs.png)
+## Selenium Grid
+>*Assuming the terminal is on the same dir as the jar file, otherwise use the appropriate path to the jar*
 
-Attaching node to the hub:
+>*Suffices for local testing on a single machine*
+> 
+>Creating standalone session for selenium:
+>
+>**java -jar selenium-server-4.14.1.jar standalone**
 
-**java -jar selenium-server-4.14.1.jar node --port 5555 --selenium-manager true**
+>*If we want to create a distributed system with several machines*
+> 
+>Opening hub for selenium:
+>
+>**java -jar selenium-server-4.14.1.jar hub**
+>
+>Attaching node to the hub:
+>
+>**java -jar selenium-server-4.14.1.jar node --port 5555 --selenium-manager true**

@@ -4,10 +4,11 @@ import components.java.classes.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.net.MalformedURLException;
 import java.util.List;
 
 public class RTP extends Website {
-    public RTP(Driver driver) {
+    public RTP(Driver driver) throws MalformedURLException {
         super(driver,"https://www.rtp.pt/play/");
         DOMAIN = "https://www.rtp.pt/play/";
         CSS_ELEMENT_CHANNEL_SELECTOR = "img.img-responsive";
