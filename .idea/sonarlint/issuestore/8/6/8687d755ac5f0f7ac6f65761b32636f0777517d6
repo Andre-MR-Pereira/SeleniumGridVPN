@@ -1,37 +1,37 @@
 
 i
-java:S1104"SMake website a static final constant or non-public and provide accessors if needed.(ïØ¼Ì
+java:S1104"SMake website a static final constant or non-public and provide accessors if needed.(ïØ¼Ì
 m
-java:S1104"RMake DOMAIN a static final constant or non-public and provide accessors if needed.(ÿâØ§şÿÿÿÿ
+java:S1104"RMake DOMAIN a static final constant or non-public and provide accessors if needed.(ÿâØ§şÿÿÿÿ
 ~
-java:S1104"hMake CSS_ELEMENT_CHANNEL_SELECTOR a static final constant or non-public and provide accessors if needed.(ùÃ´­
+java:S1104"hMake CSS_ELEMENT_CHANNEL_SELECTOR a static final constant or non-public and provide accessors if needed.(ùÃ´­
 …
-java:S1104"jMake CSS_ELEMENT_CHANNEL_DESCRIPTOR a static final constant or non-public and provide accessors if needed.(áığüûÿÿÿÿ
+java:S1104"jMake CSS_ELEMENT_CHANNEL_DESCRIPTOR a static final constant or non-public and provide accessors if needed.(áığüûÿÿÿÿ
 p
-java:S1104"UMake SITE_NAME a static final constant or non-public and provide accessors if needed.(õöµòúÿÿÿÿ
+java:S1104"UMake SITE_NAME a static final constant or non-public and provide accessors if needed.(õöµòúÿÿÿÿ
 w
-java:S1104"\Make COOKIES_SELECTOR a static final constant or non-public and provide accessors if needed.(úóæîúÿÿÿÿ
+java:S1104"\Make COOKIES_SELECTOR a static final constant or non-public and provide accessors if needed.(úóæîúÿÿÿÿ
 G
-java:S1444",Make this "public static DOMAIN" field final(ÿâØ§şÿÿÿÿ
+java:S1444",Make this "public static DOMAIN" field final(ÿâØ§şÿÿÿÿ
 X
-java:S1444"BMake this "public static CSS_ELEMENT_CHANNEL_SELECTOR" field final(ùÃ´­
+java:S1444"BMake this "public static CSS_ELEMENT_CHANNEL_SELECTOR" field final(ùÃ´­
 _
-java:S1444"DMake this "public static CSS_ELEMENT_CHANNEL_DESCRIPTOR" field final(áığüûÿÿÿÿ
+java:S1444"DMake this "public static CSS_ELEMENT_CHANNEL_DESCRIPTOR" field final(áığüûÿÿÿÿ
 J
-java:S1444"/Make this "public static SITE_NAME" field final(õöµòúÿÿÿÿ
+java:S1444"/Make this "public static SITE_NAME" field final(õöµòúÿÿÿÿ
 Q
-java:S1444"6Make this "public static COOKIES_SELECTOR" field final(úóæîúÿÿÿÿ
+java:S1444"6Make this "public static COOKIES_SELECTOR" field final(úóæîúÿÿÿÿ
 ,
-java:S1700"Rename field "website"(ïØ¼Ì
+java:S1700"Rename field "website"(ïØ¼Ì
 l
-java:S3008"QRename this field "DOMAIN" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿâØ§şÿÿÿÿ
+java:S3008"QRename this field "DOMAIN" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿâØ§şÿÿÿÿ
 }
-java:S3008"gRename this field "CSS_ELEMENT_CHANNEL_SELECTOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ùÃ´­
+java:S3008"gRename this field "CSS_ELEMENT_CHANNEL_SELECTOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ùÃ´­
 „
-java:S3008"iRename this field "CSS_ELEMENT_CHANNEL_DESCRIPTOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áığüûÿÿÿÿ
+java:S3008"iRename this field "CSS_ELEMENT_CHANNEL_DESCRIPTOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áığüûÿÿÿÿ
 o
-java:S3008"TRename this field "SITE_NAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õöµòúÿÿÿÿ
+java:S3008"TRename this field "SITE_NAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õöµòúÿÿÿÿ
 v
-java:S3008"[Rename this field "COOKIES_SELECTOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(úóæîúÿÿÿÿ
-E	java:S106"+Replace this use of System.out by a logger.(ŞÓºŒûÿÿÿÿ
-E	java:S106"+Replace this use of System.out by a logger.(íÉ´üÿÿÿÿ
+java:S3008"[Rename this field "COOKIES_SELECTOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(úóæîúÿÿÿÿ
+E	java:S106"+Replace this use of System.out by a logger.(ŞÓºŒûÿÿÿÿ
+E	java:S106"+Replace this use of System.out by a logger.(íÉ´üÿÿÿÿ
