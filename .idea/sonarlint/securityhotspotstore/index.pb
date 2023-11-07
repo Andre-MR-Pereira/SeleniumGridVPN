@@ -12,8 +12,6 @@ W
 'src/components/java/classes/Driver.java,5\8\583060c9d6b3cc34c27c850ce26202d6d5082fc8
 Z
 *src/components/java/classes/pages/RTP.java,d\e\de995aeb26c831662e830958481879a497dad001
-P
- src/test/java/pages/RTPTest.java,9\4\94d9d1bebfd83e489c596e6a6ba2ed2c921a18e1
 =
 src/Main.java,9\2\924f089edb4af5ee45c8a9d1129cd28e2b368138
 =
@@ -22,3 +20,5 @@ P
 -src/test/java/pages/ThreadingDriversTest.java,c\5\c50e41ed700f28f24c74d988ed1c250d24cfbdb7
 T
 $src/test/java/pages/GenericTest.java,f\0\f0baf4b98bf62136bc36dfbb6c2e1c77a0560bce
+T
+$src/test/java/pages/RTP/RTPTest.java,4\4\444967a0b8c9e77ddf05cb6b567ffd4df1ad021d

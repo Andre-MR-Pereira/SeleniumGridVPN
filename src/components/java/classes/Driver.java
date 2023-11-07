@@ -10,7 +10,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class Driver {
-    private String webBrowser;
+    public String webBrowser;
     private String mode;
 
     private ChromeOptions chromeOptions;
@@ -21,6 +21,7 @@ public class Driver {
 
     public Driver(String navigator, String driverPath) {
         mode = "Local";
+        PORT = "4444";
         setDrivers(navigator, driverPath);
     }
 
@@ -44,12 +45,14 @@ public class Driver {
                     new RemoteWebDriver(new URL("http://localhost:"+PORT), chromeOptions):
                     new RemoteWebDriver(new URL("http://localhost:"+PORT), firefoxOptions);
             driver.get(site);
+            driver.manage().window().maximize();
             return driver;
         }else if(mode.equalsIgnoreCase("Local")){
             WebDriver driver = webBrowser.equals("Chrome") ?
                     new ChromeDriver():
                     new FirefoxDriver();
             driver.get(site);
+            driver.manage().window().maximize();
             return driver;
         }else{
             throw new IllegalArgumentException("Driver mode is not recognized");
