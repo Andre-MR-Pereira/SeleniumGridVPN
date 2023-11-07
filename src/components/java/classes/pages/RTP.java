@@ -4,6 +4,7 @@ import components.java.classes.Driver;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.MalformedURLException;
@@ -19,9 +20,10 @@ public class RTP extends Website {
         CSS_ELEMENT_CHANNEL_DESCRIPTOR = "alt";
         SITE_NAME = "RTP";
         COOKIES_SELECTOR = "rgpd_submit";
+        CSS_ELEMENT_PLAYER_SELECTOR = "player_prog";
     }
 
-    public void accessChannel(String channel) throws InterruptedException {
+    public void accessChannel(String channel) {
         clearCookiesPopup();
         List<WebElement> channelList = website.findElements(By.cssSelector(CSS_ELEMENT_CHANNEL_SELECTOR));
         for(WebElement element : channelList){
@@ -36,14 +38,17 @@ public class RTP extends Website {
                 clickNextBtn(website.findElement(By.xpath("//*[@id=\"shelf_0\"]/div/div/div[2]/button[2]")));
             }
             if(element.getAttribute(CSS_ELEMENT_CHANNEL_DESCRIPTOR).substring(18).equalsIgnoreCase(channel)){
-                WebDriverWait wait = new WebDriverWait(website, Duration.ofSeconds(1));
-                WebElement player = wait.until(
-                        ExpectedConditions.elementToBeClickable(element));
+                Wait<WebDriver> wait = getWait(300,100);
+                WebElement player = wait.until(ExpectedConditions.elementToBeClickable(element));
                 try {
-                    player.click();
+                    Actions builder = new Actions(website);
+                    //scrollPage(builder,player).click(player).perform();
+                    builder.moveToElement(player).click(player).perform();
                 }catch (ElementClickInterceptedException e){
                     closeIframe();
-                    player.click();
+                    Actions builder = new Actions(website);
+                    //scrollPage(builder,player).click(player).perform();
+                    builder.moveToElement(player).click(player).perform();
                 }
                 return;
             }
@@ -64,21 +69,20 @@ public class RTP extends Website {
 
     public boolean checkPlayerActive(){
         try {
-            WebDriverWait wait = new WebDriverWait(website, Duration.ofSeconds(1));
-            WebElement player = wait.until(
-                    ExpectedConditions.visibilityOfElementLocated(By.id("player_prog"))
-            );
-            player.getAttribute("aria-label");
-            return player.getAttribute("aria-label") != null;
-        }catch (TimeoutException e){
+            return checkIfPlayerStartStopBtnExists();
+        }catch (TimeoutException | ElementClickInterceptedException e){
             closeIframe();
-            WebDriverWait wait = new WebDriverWait(website, Duration.ofSeconds(1));
-            WebElement player = wait.until(
-                    ExpectedConditions.visibilityOfElementLocated(By.id("player_prog"))
-            );
-            player.getAttribute("aria-label");
-            return player.getAttribute("aria-label") != null;
+            return checkIfPlayerStartStopBtnExists();
         }
+    }
+
+    private boolean checkIfPlayerStartStopBtnExists(){
+        Wait<WebDriver> wait = getWait(1500,100);
+        WebElement player = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(By.id("player_prog"))
+        );
+        player.getAttribute("aria-label");
+        return player.getAttribute("aria-label") != null;
     }
 
     private void clickNextBtn(WebElement element) {
@@ -87,9 +91,13 @@ public class RTP extends Website {
     }
 
     private void closeIframe(){
-        website.switchTo().frame(website.findElement(By.cssSelector("iframe[id^='google_ads_iframe'")));
-        website.switchTo().frame(website.findElement(By.cssSelector("iframe[id^='ad_iframe'")));
-        website.findElement(By.cssSelector("div[id^='dismiss-button'")).click();
-        website.switchTo().defaultContent();
+        try{
+            website.switchTo().frame(website.findElement(By.cssSelector("iframe[id^='google_ads_iframe'")));
+            website.switchTo().frame(website.findElement(By.cssSelector("iframe[id^='ad_iframe'")));
+            website.findElement(By.cssSelector("div[id^='dismiss-button'")).click();
+            website.switchTo().defaultContent();
+        }catch (NoSuchElementException e){
+            System.out.println("No iframe appeared.");
+        }
     }
 }

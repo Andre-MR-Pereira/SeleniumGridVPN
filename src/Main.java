@@ -7,8 +7,6 @@ import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 public class Main {
     public static Dictionary<String, String> flags = new Hashtable<>();
 
@@ -44,18 +42,14 @@ public class Main {
         }
         System.out.println("The Dictionary is: " + flags);
 
-        Driver Chrome = new Driver("Chrome",flags.get("Chrome"));
+        Driver Chrome = new Driver("Firefox",flags.get("Firefox"));
         RTP rtp = new RTP(Chrome);
         List<String> channels = rtp.channelListing();
         channels.forEach(channel -> System.out.println(channel));
-
+        channels = new ArrayList<>(List.of("Emissão em direto RTP Desporto 4", "Emissão em direto Antena1"));
         if (flags.get("VPN").equals("true")) {
             channels.forEach(channel -> {
-                try {
-                    rtp.accessChannel(channel.substring(18));
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
+                rtp.accessChannel(channel.substring(18));
                 boolean testResult = rtp.checkPlayerActive();
                 bannerMessage("Channel " + channel.substring(18) + " is being tested on " + rtp.webDriver + " browser.","VPN ON:" + (testResult ? "can " : "cannot " + "watch ") + channel.substring(18), testResult ? "green" : "red");
                 rtp.returnMainPage();
@@ -63,11 +57,7 @@ public class Main {
         } else {
             List<String> activeChannels = new ArrayList<>();
             channels.forEach(channel -> {
-                try {
-                    rtp.accessChannel(channel.substring(18));
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
+                rtp.accessChannel(channel.substring(18));
                 boolean testResult = rtp.checkPlayerActive();
                 bannerMessage("Channel " + channel.substring(18) + " is being tested on " + rtp.webDriver + " browser.","VPN OFF:" + (testResult ? "can " : "cannot " + "watch ") + channel.substring(18), testResult ? "green" : "red");
                 rtp.returnMainPage();

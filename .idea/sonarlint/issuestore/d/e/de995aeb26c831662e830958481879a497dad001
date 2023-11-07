@@ -1,9 +1,10 @@
 
-m
-java:S1192G"KDefine a constant instead of duplicating this literal "aria-label" 4 times.(ÉÅ®óùÿÿÿÿ8˜ŞÏÍº1
-”
-java:S1130"wRemove the declaration of thrown exception 'java.lang.InterruptedException', as it cannot be thrown from method's body.(ª–ïÊ8ÁôÍº1
-b
-java:S1128"ERemove this unused import 'org.openqa.selenium.interactions.Actions'.(ÅÑÃ8®ŞÏÍº1
+X	java:S125-"<This block of commented-out lines of code should be removed.(†®åê8İá¤Öº1
+X	java:S1252"<This block of commented-out lines of code should be removed.(†®åê8Şá¤Öº1
+G	java:S106d"+Replace this use of System.out by a logger.(²†ŸÖ8õ¤Öº1
+f
+java:S1128"IRemove this unused import 'org.openqa.selenium.support.ui.WebDriverWait'.(¥÷ó8õ¤Öº1
+Q
+java:S1128"/Remove this unused import 'java.time.Duration'.(ëá¯‰üÿÿÿÿ8õ¤Öº1
 W
-java:S1128":Remove this unused import 'java.util.concurrent.TimeUnit'.(Æ™ş8¨ÁôÍº1
+java:S1128":Remove this unused import 'java.util.concurrent.TimeUnit'.(Æ™ş8õ¤Öº1

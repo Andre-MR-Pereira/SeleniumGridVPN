@@ -1,12 +1,11 @@
 package components.java.classes.pages;
 
 import components.java.classes.Driver;
-import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.MalformedURLException;
@@ -17,16 +16,14 @@ import java.util.concurrent.TimeUnit;
 
 public class Website {
     public WebDriver website;
-
-    public static String DOMAIN;
-
-    public static String CSS_ELEMENT_CHANNEL_SELECTOR;
-    public static String CSS_ELEMENT_CHANNEL_DESCRIPTOR;
-    public static String SITE_NAME;
-
-    public static String COOKIES_SELECTOR;
-
-    public static String webDriver;
+    public String webDriver;
+    public String DOMAIN;
+    public String CSS_ELEMENT_CHANNEL_SELECTOR;
+    public String CSS_ELEMENT_CHANNEL_DESCRIPTOR;
+    public String SITE_NAME;
+    public String COOKIES_SELECTOR;
+    public String CSS_ELEMENT_PLAYER_SELECTOR;
+    public int failedCookiesCounter = 0;
 
     public Website(Driver driver, String site) throws MalformedURLException {
         webDriver = driver.webBrowser;
@@ -44,13 +41,13 @@ public class Website {
 
     public void clearCookiesPopup(){
         try{
-            WebDriverWait wait = new WebDriverWait(website, Duration.ofSeconds(2));
+            Wait<WebDriver> wait = getWait(300,100);
             WebElement cookies = wait.until(
                     ExpectedConditions.visibilityOfElementLocated(By.className(COOKIES_SELECTOR))
             );
             cookies.click();
         }catch(TimeoutException e){
-            System.out.println("Cookies window did not appear");
+            failedCookiesCounter++;
         }
     }
 
@@ -58,14 +55,12 @@ public class Website {
         website.get(DOMAIN);
     }
 
-    public void scrollPage(WebElement element){
+    public Actions scrollPage(Actions action, WebElement element){
         if (webDriver.equals("Firefox")) {
-            //NOTE: https://stackoverflow.com/questions/44777053/selenium-movetargetoutofboundsexception-with-firefox
-            scrollIntoView(website, element);
+            action.sendKeys(Keys.DOWN);
         }
-        Actions actions = new Actions(website);
-        actions.moveToElement(element);
-        actions.perform();
+        action.moveToElement(element);
+        return action;
     }
 
     public void teardown() {
@@ -76,14 +71,10 @@ public class Website {
         return webDriver;
     }
 
-    //TODO
-    private void scrollIntoView(WebDriver driver, WebElement object){
-        /*x = object.location['x'];
-        y = object.location['y'];
-        scroll_by_coord = 'window.scrollTo(%s,%s);' % (x,y)
-        scroll_nav_out_of_way = 'window.scrollBy(0, -120);'
-                driver.execute_script(scroll_by_coord)
-                driver.execute_script(scroll_nav_out_of_way)*/
+    public Wait<WebDriver> getWait(int timeoutMillis, int pollingMillis) {
+        return new FluentWait<>(website)
+                .withTimeout(Duration.ofMillis(timeoutMillis))
+                .pollingEvery(Duration.ofMillis(pollingMillis));
     }
 
     @Override

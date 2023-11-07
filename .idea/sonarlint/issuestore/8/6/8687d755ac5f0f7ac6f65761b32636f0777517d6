@@ -1,49 +1,31 @@
 
 p
-java:S1104"SMake website a static final constant or non-public and provide accessors if needed.(ïØ¼Ì8‘ÒŠÉº1
-t
-java:S1104"RMake DOMAIN a static final constant or non-public and provide accessors if needed.(ÿâØ§şÿÿÿÿ8’ÒŠÉº1
-…
-java:S1104"hMake CSS_ELEMENT_CHANNEL_SELECTOR a static final constant or non-public and provide accessors if needed.(ùÃ´­8’ÒŠÉº1
-Œ
-java:S1104"jMake CSS_ELEMENT_CHANNEL_DESCRIPTOR a static final constant or non-public and provide accessors if needed.(áığüûÿÿÿÿ8’ÒŠÉº1
+java:S1104"SMake website a static final constant or non-public and provide accessors if needed.(ïØ¼Ì8À’„Òº1
 w
-java:S1104"UMake SITE_NAME a static final constant or non-public and provide accessors if needed.(õöµòúÿÿÿÿ8’ÒŠÉº1
-~
-java:S1104"\Make COOKIES_SELECTOR a static final constant or non-public and provide accessors if needed.(úóæîúÿÿÿÿ8’ÒŠÉº1
+java:S1104"UMake webDriver a static final constant or non-public and provide accessors if needed.(á¸’ùıÿÿÿÿ8Á’„Òº1
+t
+java:S1104"RMake DOMAIN a static final constant or non-public and provide accessors if needed.(¾Âïôşÿÿÿÿ8Á’„Òº1
+Š
+java:S1104"hMake CSS_ELEMENT_CHANNEL_SELECTOR a static final constant or non-public and provide accessors if needed.(¯·ìüÿÿÿÿ8Á’„Òº1
+Œ
+java:S1104"jMake CSS_ELEMENT_CHANNEL_DESCRIPTOR a static final constant or non-public and provide accessors if needed.(öêøÿÿÿÿ8Á’„Òº1
 r
-java:S1104"UMake webDriver a static final constant or non-public and provide accessors if needed.(¯Ô©å8’ÒŠÉº1
-N
-java:S1444",Make this "public static DOMAIN" field final(ÿâØ§şÿÿÿÿ8“ÒŠÉº1
-_
-java:S1444"BMake this "public static CSS_ELEMENT_CHANNEL_SELECTOR" field final(ùÃ´­8“ÒŠÉº1
-f
-java:S1444"DMake this "public static CSS_ELEMENT_CHANNEL_DESCRIPTOR" field final(áığüûÿÿÿÿ8“ÒŠÉº1
-Q
-java:S1444"/Make this "public static SITE_NAME" field final(õöµòúÿÿÿÿ8“ÒŠÉº1
-X
-java:S1444"6Make this "public static COOKIES_SELECTOR" field final(úóæîúÿÿÿÿ8“ÒŠÉº1
-L
-java:S1444"/Make this "public static webDriver" field final(¯Ô©å8“ÒŠÉº1
-3
-java:S1700"Rename field "website"(ïØ¼Ì8•ÒŠÉº1
-s
-java:S3008"QRename this field "DOMAIN" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿâØ§şÿÿÿÿ8¯ÒŠÉº1
+java:S1104"UMake SITE_NAME a static final constant or non-public and provide accessors if needed.(Ø×ß8Á’„Òº1
+y
+java:S1104"\Make COOKIES_SELECTOR a static final constant or non-public and provide accessors if needed.(£•©Æ8Á’„Òº1
 „
-java:S3008"gRename this field "CSS_ELEMENT_CHANNEL_SELECTOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ùÃ´­8°ÒŠÉº1
-‹
-java:S3008"iRename this field "CSS_ELEMENT_CHANNEL_DESCRIPTOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áığüûÿÿÿÿ8°ÒŠÉº1
-v
-java:S3008"TRename this field "SITE_NAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õöµòúÿÿÿÿ8°ÒŠÉº1
+java:S1104"gMake CSS_ELEMENT_PLAYER_SELECTOR a static final constant or non-public and provide accessors if needed.(öŸÈ‘8ª¹¿Òº1
 }
-java:S3008"[Rename this field "COOKIES_SELECTOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(úóæîúÿÿÿÿ8°ÒŠÉº1
-C
-java:S3010 "&Remove this assignment of "webDriver".(¼™«›8¹ÒŠÉº1
-L	java:S1065"+Replace this use of System.out by a logger.(¦©Ú‹şÿÿÿÿ8ÅÒŠÉº1
-V
-java:S1172P"9Remove these unused method parameters "driver", "object".(ñ‰Å‘8ÖÒŠÉº1
-O
-java:S1135O"2Complete the task associated to this TODO comment.(…ïœ†8å£°Íº1
-X	java:S125Q"<This block of commented-out lines of code should be removed.(·ˆóÌ8×ÒŠÉº1
+java:S1104"`Make failedCookiesCounter a static final constant or non-public and provide accessors if needed.(ü”ı8Á’„Òº1
+3
+java:S1700"Rename field "website"(ïØ¼Ì8Á’„Òº1
+r	java:S116"QRename this field "DOMAIN" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾Âïôşÿÿÿÿ8Æ’„Òº1
+ˆ	java:S116"gRename this field "CSS_ELEMENT_CHANNEL_SELECTOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯·ìüÿÿÿÿ8Æ’„Òº1
+Š	java:S116"iRename this field "CSS_ELEMENT_CHANNEL_DESCRIPTOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öêøÿÿÿÿ8Æ’„Òº1
+p	java:S116"TRename this field "SITE_NAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ø×ß8Æ’„Òº1
+w	java:S116"[Rename this field "COOKIES_SELECTOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£•©Æ8Æ’„Òº1
+‚	java:S116"fRename this field "CSS_ELEMENT_PLAYER_SELECTOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öŸÈ‘8¯¹¿Òº1
+f
+java:S1128	"IRemove this unused import 'org.openqa.selenium.support.ui.WebDriverWait'.(¥÷ó8³¹¿Òº1
 W
-java:S1128":Remove this unused import 'java.util.concurrent.TimeUnit'.(Æ™ş8³Œ—Íº1
+java:S1128":Remove this unused import 'java.util.concurrent.TimeUnit'.(Æ™ş8³¹¿Òº1

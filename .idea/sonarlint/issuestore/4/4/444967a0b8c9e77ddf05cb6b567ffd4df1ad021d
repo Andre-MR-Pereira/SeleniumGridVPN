@@ -1,8 +1,16 @@
 
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÛŸè‰ùÿÿÿÿ8Ä­íÌº1
-]	java:S125*"<This block of commented-out lines of code should be removed.(êÎ‚›úÿÿÿÿ8Í­íÌº1
-M
-java:S1128
-"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8Í­íÌº1
-M
-java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8Î­íÌº1
+r
+java:S11923"UDefine a constant instead of duplicating this literal " is being tested on " 3 times.(¢õŽî8´âÎÐº1
+f
+java:S11923"IDefine a constant instead of duplicating this literal "Channel " 3 times.(¢õŽî8´âÎÐº1
+c
+java:S1192"FDefine a constant instead of duplicating this literal "green" 3 times.(×™ùÖ8Ï©ÍÐº1
+d
+java:S11923"GDefine a constant instead of duplicating this literal "watch " 3 times.(¢õŽî8´âÎÐº1
+e
+java:S11923"HDefine a constant instead of duplicating this literal "cannot " 3 times.(¢õŽî8´âÎÐº1
+r	java:S117,"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Þ÷Æÿýÿÿÿÿ8Ï©ÍÐº1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÛŸè‰ùÿÿÿÿ8Ï©ÍÐº1
+X	java:S125"<This block of commented-out lines of code should be removed.(ŽªŒÍ8ÈŠ¦Ñº1
+t
+java:S3776*"RRefactor this method to reduce its Cognitive Complexity from 35 to the 15 allowed.(êÎ‚›úÿÿÿÿ8Ö©ÍÐº1
