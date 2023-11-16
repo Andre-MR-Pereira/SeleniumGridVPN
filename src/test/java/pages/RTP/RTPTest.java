@@ -17,7 +17,7 @@ public class RTPTest extends ThreadingDriversTest implements GenericTest {
     @BeforeEach
     public void setup() throws MalformedURLException {
         listBrowsers.add(new RTP(chromeDriver));
-        //listBrowsers.add(new RTP(firefoxDriver));
+        listBrowsers.add(new RTP(firefoxDriver));
     }
 
     @Test
@@ -60,6 +60,7 @@ public class RTPTest extends ThreadingDriversTest implements GenericTest {
                     List<String> activeChannels = new ArrayList<>();
                     channels.forEach(channel -> {
                         RTPbrowser.accessChannel(channel.substring(18));
+                        System.out.println("Entering player -> " + channel);
                         boolean testResult = RTPbrowser.checkPlayerActive();
                         bannerMessage("Channel " + channel.substring(18) + " is being tested on " + RTPbrowser.webDriver + " browser.","VPN OFF:" + (testResult ? "can " : "cannot " + "watch ") + channel.substring(18), testResult ? "green" : "red");
                         RTPbrowser.returnMainPage();

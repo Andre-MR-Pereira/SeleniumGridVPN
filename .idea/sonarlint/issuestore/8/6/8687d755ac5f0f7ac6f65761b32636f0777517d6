@@ -1,31 +1,31 @@
 
 p
-java:S1104"SMake website a static final constant or non-public and provide accessors if needed.(ïØ¼Ì8À’„Òº1
+java:S1104"SMake website a static final constant or non-public and provide accessors if needed.(ïØ¼Ì8²Ê¾¿½1
 w
-java:S1104"UMake webDriver a static final constant or non-public and provide accessors if needed.(á¸’ùıÿÿÿÿ8Á’„Òº1
+java:S1104"UMake webDriver a static final constant or non-public and provide accessors if needed.(á¸’ùıÿÿÿÿ8³Ê¾¿½1
 t
-java:S1104"RMake DOMAIN a static final constant or non-public and provide accessors if needed.(¾Âïôşÿÿÿÿ8Á’„Òº1
+java:S1104"RMake DOMAIN a static final constant or non-public and provide accessors if needed.(¾Âïôşÿÿÿÿ8³Ê¾¿½1
 Š
-java:S1104"hMake CSS_ELEMENT_CHANNEL_SELECTOR a static final constant or non-public and provide accessors if needed.(¯·ìüÿÿÿÿ8Á’„Òº1
+java:S1104"hMake CSS_ELEMENT_CHANNEL_SELECTOR a static final constant or non-public and provide accessors if needed.(¯·ìüÿÿÿÿ8³Ê¾¿½1
 Œ
-java:S1104"jMake CSS_ELEMENT_CHANNEL_DESCRIPTOR a static final constant or non-public and provide accessors if needed.(öêøÿÿÿÿ8Á’„Òº1
+java:S1104"jMake CSS_ELEMENT_CHANNEL_DESCRIPTOR a static final constant or non-public and provide accessors if needed.(öêøÿÿÿÿ8³Ê¾¿½1
 r
-java:S1104"UMake SITE_NAME a static final constant or non-public and provide accessors if needed.(Ø×ß8Á’„Òº1
+java:S1104"UMake SITE_NAME a static final constant or non-public and provide accessors if needed.(Ø×ß8³Ê¾¿½1
 y
-java:S1104"\Make COOKIES_SELECTOR a static final constant or non-public and provide accessors if needed.(£•©Æ8Á’„Òº1
+java:S1104"\Make COOKIES_SELECTOR a static final constant or non-public and provide accessors if needed.(£•©Æ8³Ê¾¿½1
 „
-java:S1104"gMake CSS_ELEMENT_PLAYER_SELECTOR a static final constant or non-public and provide accessors if needed.(öŸÈ‘8ª¹¿Òº1
+java:S1104"gMake CSS_ELEMENT_PLAYER_SELECTOR a static final constant or non-public and provide accessors if needed.(öŸÈ‘8³Ê¾¿½1
 }
-java:S1104"`Make failedCookiesCounter a static final constant or non-public and provide accessors if needed.(ü”ı8Á’„Òº1
+java:S1104"`Make failedCookiesCounter a static final constant or non-public and provide accessors if needed.(ü”ı8³Ê¾¿½1
 3
-java:S1700"Rename field "website"(ïØ¼Ì8Á’„Òº1
-r	java:S116"QRename this field "DOMAIN" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾Âïôşÿÿÿÿ8Æ’„Òº1
-ˆ	java:S116"gRename this field "CSS_ELEMENT_CHANNEL_SELECTOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯·ìüÿÿÿÿ8Æ’„Òº1
-Š	java:S116"iRename this field "CSS_ELEMENT_CHANNEL_DESCRIPTOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öêøÿÿÿÿ8Æ’„Òº1
-p	java:S116"TRename this field "SITE_NAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ø×ß8Æ’„Òº1
-w	java:S116"[Rename this field "COOKIES_SELECTOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£•©Æ8Æ’„Òº1
-‚	java:S116"fRename this field "CSS_ELEMENT_PLAYER_SELECTOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öŸÈ‘8¯¹¿Òº1
+java:S1700"Rename field "website"(ïØ¼Ì8³Ê¾¿½1
+r	java:S116"QRename this field "DOMAIN" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾Âïôşÿÿÿÿ8¹Ê¾¿½1
+ˆ	java:S116"gRename this field "CSS_ELEMENT_CHANNEL_SELECTOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯·ìüÿÿÿÿ8¹Ê¾¿½1
+Š	java:S116"iRename this field "CSS_ELEMENT_CHANNEL_DESCRIPTOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öêøÿÿÿÿ8¹Ê¾¿½1
+p	java:S116"TRename this field "SITE_NAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ø×ß8¹Ê¾¿½1
+w	java:S116"[Rename this field "COOKIES_SELECTOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£•©Æ8¹Ê¾¿½1
+‚	java:S116"fRename this field "CSS_ELEMENT_PLAYER_SELECTOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öŸÈ‘8¹Ê¾¿½1
 f
-java:S1128	"IRemove this unused import 'org.openqa.selenium.support.ui.WebDriverWait'.(¥÷ó8³¹¿Òº1
+java:S1128	"IRemove this unused import 'org.openqa.selenium.support.ui.WebDriverWait'.(¥÷ó8½Ê¾¿½1
 W
-java:S1128":Remove this unused import 'java.util.concurrent.TimeUnit'.(Æ™ş8³¹¿Òº1
+java:S1128":Remove this unused import 'java.util.concurrent.TimeUnit'.(Æ™ş8½Ê¾¿½1

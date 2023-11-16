@@ -56,10 +56,7 @@ public class Website {
     }
 
     public Actions scrollPage(Actions action, WebElement element){
-        if (webDriver.equals("Firefox")) {
-            action.sendKeys(Keys.DOWN);
-        }
-        action.moveToElement(element);
+        action.scrollByAmount(element.getLocation().x, element.getLocation().y);
         return action;
     }
 

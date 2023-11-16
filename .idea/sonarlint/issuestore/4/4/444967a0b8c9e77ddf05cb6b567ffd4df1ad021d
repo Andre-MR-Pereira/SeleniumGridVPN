@@ -11,6 +11,6 @@ e
 java:S11923"HDefine a constant instead of duplicating this literal "cannot " 3 times.(¢õŽî8´âÎÐº1
 r	java:S117,"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Þ÷Æÿýÿÿÿÿ8Ï©ÍÐº1
 {	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÛŸè‰ùÿÿÿÿ8Ï©ÍÐº1
-X	java:S125"<This block of commented-out lines of code should be removed.(ŽªŒÍ8ÈŠ¦Ñº1
 t
 java:S3776*"RRefactor this method to reduce its Cognitive Complexity from 35 to the 15 allowed.(êÎ‚›úÿÿÿÿ8Ö©ÍÐº1
+L	java:S106?"+Replace this use of System.out by a logger.(ü§®üÿÿÿÿ8Äñ©¿½1

@@ -31,24 +31,32 @@ public class RTP extends Website {
                     element.getAttribute(CSS_ELEMENT_CHANNEL_DESCRIPTOR).substring(18).equals("Rádio Lusitânia") ||
                     element.getAttribute(CSS_ELEMENT_CHANNEL_DESCRIPTOR).substring(18).equals("Antena1 Vida") ||
                     element.getAttribute(CSS_ELEMENT_CHANNEL_DESCRIPTOR).substring(18).equals("Antena3 Madeira")){
-                clickNextBtn(website.findElement(By.xpath("//*[@id=\"shelf_1\"]/div/div/div[2]/button[2]")));
+                try{
+                    clickNextBtn(website.findElement(By.xpath("//*[@id=\"shelf_1\"]/div/div/div[2]/button[2]")));
+                }catch (ElementClickInterceptedException e) {
+                    closeIframe();
+                    clickNextBtn(website.findElement(By.xpath("//*[@id=\"shelf_1\"]/div/div/div[2]/button[2]")));
+                }
             }else if(element.getAttribute(CSS_ELEMENT_CHANNEL_DESCRIPTOR).substring(18).equals("RTP África") ||
                 element.getAttribute(CSS_ELEMENT_CHANNEL_DESCRIPTOR).substring(18).equals("RTP Desporto 1") ||
                 element.getAttribute(CSS_ELEMENT_CHANNEL_DESCRIPTOR).substring(18).equals("RTP Desporto 3")){
-                clickNextBtn(website.findElement(By.xpath("//*[@id=\"shelf_0\"]/div/div/div[2]/button[2]")));
+                try{
+                    clickNextBtn(website.findElement(By.xpath("//*[@id=\"shelf_0\"]/div/div/div[2]/button[2]")));
+                }catch (ElementClickInterceptedException e) {
+                    closeIframe();
+                    clickNextBtn(website.findElement(By.xpath("//*[@id=\"shelf_0\"]/div/div/div[2]/button[2]")));
+                }
             }
             if(element.getAttribute(CSS_ELEMENT_CHANNEL_DESCRIPTOR).substring(18).equalsIgnoreCase(channel)){
                 Wait<WebDriver> wait = getWait(300,100);
                 WebElement player = wait.until(ExpectedConditions.elementToBeClickable(element));
                 try {
                     Actions builder = new Actions(website);
-                    //scrollPage(builder,player).click(player).perform();
-                    builder.moveToElement(player).click(player).perform();
+                    scrollPage(builder,player).moveToElement(player).click(player).perform();
                 }catch (ElementClickInterceptedException e){
                     closeIframe();
                     Actions builder = new Actions(website);
-                    //scrollPage(builder,player).click(player).perform();
-                    builder.moveToElement(player).click(player).perform();
+                    scrollPage(builder,player).moveToElement(player).click(player).perform();
                 }
                 return;
             }
@@ -93,11 +101,15 @@ public class RTP extends Website {
     private void closeIframe(){
         try{
             website.switchTo().frame(website.findElement(By.cssSelector("iframe[id^='google_ads_iframe'")));
-            website.switchTo().frame(website.findElement(By.cssSelector("iframe[id^='ad_iframe'")));
-            website.findElement(By.cssSelector("div[id^='dismiss-button'")).click();
+            try{
+                website.findElement(By.cssSelector("div[id^='dismiss-button'")).click();
+            }catch(NoSuchElementException e){
+                website.switchTo().frame(website.findElement(By.cssSelector("iframe[id^='ad_iframe'")));
+                website.findElement(By.cssSelector("div[id^='dismiss-button'")).click();
+            }
             website.switchTo().defaultContent();
         }catch (NoSuchElementException e){
-            System.out.println("No iframe appeared.");
+            System.out.println("Iframe closing failed.");
         }
     }
 }
