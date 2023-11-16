@@ -17,9 +17,9 @@ public interface GenericTest {
 
     @AfterEach
     default void teardown(){
-        /*while (!listBrowsers.isEmpty()){
+        while (!listBrowsers.isEmpty()){
             listBrowsers.remove(0).teardown();
-        }*/
+        }
     }
 
     default void bannerMessage(String message, String color){
