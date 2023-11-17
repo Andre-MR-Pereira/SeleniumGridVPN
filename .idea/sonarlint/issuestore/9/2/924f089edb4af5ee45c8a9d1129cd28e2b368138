@@ -1,44 +1,0 @@
-
-‚
-java:S1192J"fDefine a constant instead of duplicating this literal "#####################################" 4 times.(×¶ú8ËÖº1
-c
-java:S11926"FDefine a constant instead of duplicating this literal "green" 3 times.(Šî•û8‘ËÖº1
-j
-java:S1192"HDefine a constant instead of duplicating this literal "Firefox" 3 times.(˜Èæøÿÿÿÿ8‘ËÖº1
-y	java:S127"XRefactor the code in order to not assign to this loop counter from within the loop body.(¡ı¦‹ùÿÿÿÿ8‘ËÖº1
-y	java:S127"XRefactor the code in order to not assign to this loop counter from within the loop body.(˜Èæøÿÿÿÿ8‘ËÖº1
-y	java:S127 "XRefactor the code in order to not assign to this loop counter from within the loop body.(ú¾Üúÿÿÿÿ8‘ËÖº1
-r	java:S117-"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÉºôŸüÿÿÿÿ8‘ËÖº1
-n
-java:S1104"QMake flags a static final constant or non-public and provide accessors if needed.(Çìßó8‘ËÖº1
-H
-java:S1444"+Make this "public static flags" field final(Çìßó8‘ËÖº1
-7
-java:S1220""Move this file to a named package.8‘ËÖº1
-s
-java:S1149"VReplace the synchronized class "Hashtable" by an unsynchronized one such as "HashMap".(Çìßó8¤ÌÖº1
-o
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 38 to the 15 allowed.(€–ûé8¦ÌÖº1
-G	java:S106"+Replace this use of System.err by a logger.(„‰ªê8§ÌÖº1
-G	java:S106"+Replace this use of System.err by a logger.(Íı¸á8¨ÌÖº1
-G	java:S106""+Replace this use of System.err by a logger.(«¥êÔ8¨ÌÖº1
-G	java:S106'"+Replace this use of System.err by a logger.(üú™8¨ÌÖº1
-G	java:S106+"+Replace this use of System.out by a logger.(Ş¿Ÿ»8¨ÌÖº1
-b
-java:S16120"@Replace this lambda with method reference 'System.out::println'.(ì®Íüÿÿÿÿ8«ÌÖº1
-L	java:S1060"+Replace this use of System.out by a logger.(ì®Íüÿÿÿÿ8¬ÌÖº1
-F	java:S106J"+Replace this use of System.out by a logger.(×¶ú8±ÌÖº1
-L	java:S106K"+Replace this use of System.out by a logger.(øºÑûúÿÿÿÿ8±ÌÖº1
-F	java:S106L"+Replace this use of System.out by a logger.(×¶ú8±ÌÖº1
-G	java:S106M"+Replace this use of System.out by a logger.(  Êº8±ÌÖº1
-L	java:S106Q"+Replace this use of System.out by a logger.(ÉÉ¦ûıÿÿÿÿ8²ÌÖº1
-F	java:S106S"+Replace this use of System.out by a logger.(×¶ú8²ÌÖº1
-L	java:S106T"+Replace this use of System.out by a logger.(øºÑûúÿÿÿÿ8³ÌÖº1
-F	java:S106U"+Replace this use of System.out by a logger.(×¶ú8³ÌÖº1
-G	java:S106V"+Replace this use of System.out by a logger.(  Êº8³ÌÖº1
-L	java:S106["+Replace this use of System.out by a logger.(†¢ĞÍøÿÿÿÿ8´ÌÖº1
-G	java:S106\"+Replace this use of System.out by a logger.(Ë™­¼8´ÌÖº1
-G	java:S106]"+Replace this use of System.out by a logger.(çœÈ×8µÌÖº1
-L	java:S106^"+Replace this use of System.out by a logger.(üŠÎÅıÿÿÿÿ8µÌÖº1
-F	java:S106_"+Replace this use of System.out by a logger.(‚Ú¡`8µÌÖº1
-F	java:S106`"+Replace this use of System.out by a logger.(ÿè¶8µÌÖº1

@@ -1,0 +1,10 @@
+
+j
+java:S1192'"HDefine a constant instead of duplicating this literal "Firefox" 3 times.(Ð¤ïõøÿÿÿÿ8·§¡¬º1
+i
+java:S1192 "GDefine a constant instead of duplicating this literal "Chrome" 5 times.(ï’í­þÿÿÿÿ8¶§¡¬º1
+h
+java:S1192"KDefine a constant instead of duplicating this literal "Standalone" 3 times.(þ¸ªÇ8¶§¡¬º1
+x
+java:S1104"VMake webBrowser a static final constant or non-public and provide accessors if needed.(¢‘ß›üÿÿÿÿ8·§¡¬º1
+p	java:S116"ORename this field "PORT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“ ó‘úÿÿÿÿ8¼§¡¬º1
