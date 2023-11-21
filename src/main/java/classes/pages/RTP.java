@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 
 import java.net.MalformedURLException;
+import java.time.Duration;
 import java.util.List;
 
 public class RTP extends Website {
@@ -48,12 +49,20 @@ public class RTP extends Website {
                 Wait<WebDriver> wait = getWait(300,100);
                 WebElement player = wait.until(ExpectedConditions.elementToBeClickable(element));
                 try {
-                    Actions builder = new Actions(website);
-                    scrollPage(builder,player).moveToElement(player).click(player).perform();
+                    if(webDriver.equals("Firefox")){
+                        Actions builder = new Actions(website);
+                        scrollPage(builder,player).moveToElement(player).click(player).perform();
+                    }else{
+                        player.click();
+                    }
                 }catch (ElementClickInterceptedException e){
                     closeIframe();
-                    Actions builder = new Actions(website);
-                    scrollPage(builder,player).moveToElement(player).click(player).perform();
+                    if(webDriver.equals("Firefox")){
+                        Actions builder = new Actions(website);
+                        scrollPage(builder,player).moveToElement(player).click(player).perform();
+                    }else{
+                        player.click();
+                    }
                 }
                 return;
             }

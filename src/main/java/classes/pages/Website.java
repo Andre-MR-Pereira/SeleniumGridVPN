@@ -26,6 +26,8 @@ public class Website {
     public String CSS_ELEMENT_PLAYER_SELECTOR;
     public int failedCookiesCounter = 0;
 
+    public int threadNumber = 0;
+
     public Website(Driver driver, String site) throws MalformedURLException {
         webDriver = driver.webBrowser;
         website = driver.setSiteAndGetWebDriver(site);
@@ -57,7 +59,7 @@ public class Website {
     }
 
     public Actions scrollPage(Actions action, WebElement element){
-        action.moveByOffset(element.getLocation().x, element.getLocation().y);
+        action.scrollByAmount(element.getLocation().x, element.getLocation().y);
         return action;
     }
 

@@ -27,6 +27,11 @@ Example: *-ChromePath "Path to Chrome driver executable" -FirefoxPath "Path to F
 >![alt text](Assets/runConfigs.PNG)
 
 #### JUnit Tests
+Add VM flag to enable parallel tests execution by going to Run -> Edit Configurations -> JUnit -> And changing the VM arguments field, like so:
+
+Example: -ea -Djunit.jupiter.execution.parallel.enabled=true -Djunit.jupiter.execution.parallel.config.strategy=fixed -Djunit.jupiter.execution.parallel.config.fixed.parallelism=12
+>![alt text](Assets/junitConcurrent.png)
+
 Add flags to the execution configuration by going to Run -> Edit Configurations -> JUnit -> And changing the environment variables field, like so:
 
 Example: ChromePath=Path to Chrome driver executable;FirefoxPath=Path to Firefox driver executable;VPN=false

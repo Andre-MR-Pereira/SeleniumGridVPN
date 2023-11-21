@@ -1,6 +1,7 @@
 Main.class
 wrapper\FirstParallelUnitTest.class
-wrapper\RTP\RTPTest.class
+wrapper\RTP\RTPTestMultiThread.class
+wrapper\SetupDriver.class
 wrapper\GenericTest.class
-wrapper\ThreadingDriversTest.class
 Test.class
+wrapper\RTP\RTPTestSingleThread.class

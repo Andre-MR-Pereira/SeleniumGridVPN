@@ -1,16 +1,0 @@
-
-r
-java:S11923"UDefine a constant instead of duplicating this literal " is being tested on " 3 times.(¢õî8´âÎĞº1
-f
-java:S11923"IDefine a constant instead of duplicating this literal "Channel " 3 times.(¢õî8´âÎĞº1
-c
-java:S1192"FDefine a constant instead of duplicating this literal "green" 3 times.(×™ùÖ8Ï©ÍĞº1
-d
-java:S11923"GDefine a constant instead of duplicating this literal "watch " 3 times.(¢õî8´âÎĞº1
-e
-java:S11923"HDefine a constant instead of duplicating this literal "cannot " 3 times.(¢õî8´âÎĞº1
-r	java:S117,"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ş÷Æÿıÿÿÿÿ8Ï©ÍĞº1
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Î¬˜®ıÿÿÿÿ8Ï©ÍĞº1
-t
-java:S3776*"RRefactor this method to reduce its Cognitive Complexity from 35 to the 15 allowed.(êÎ‚›úÿÿÿÿ8Ö©ÍĞº1
-L	java:S106?"+Replace this use of System.out by a logger.(ü§®üÿÿÿÿ8Äñ©¿½1
