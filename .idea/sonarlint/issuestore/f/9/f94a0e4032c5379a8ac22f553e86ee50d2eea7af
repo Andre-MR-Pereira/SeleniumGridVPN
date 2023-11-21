@@ -1,29 +1,29 @@
 
 p
-java:S1104"SMake website a static final constant or non-public and provide accessors if needed.(ïØ¼Ì8¾Ãƒë¾1
+java:S1104"SMake website a static final constant or non-public and provide accessors if needed.(ïØ¼Ì8¾¦ò‘¿1
 w
-java:S1104"UMake webDriver a static final constant or non-public and provide accessors if needed.(á¸’ùıÿÿÿÿ8¾Ãƒë¾1
+java:S1104"UMake webDriver a static final constant or non-public and provide accessors if needed.(á¸’ùıÿÿÿÿ8¾¦ò‘¿1
 t
-java:S1104"RMake DOMAIN a static final constant or non-public and provide accessors if needed.(¾Âïôşÿÿÿÿ8¾Ãƒë¾1
+java:S1104"RMake DOMAIN a static final constant or non-public and provide accessors if needed.(¾Âïôşÿÿÿÿ8¾¦ò‘¿1
 Š
-java:S1104"hMake CSS_ELEMENT_CHANNEL_SELECTOR a static final constant or non-public and provide accessors if needed.(¯·ìüÿÿÿÿ8¿Ãƒë¾1
+java:S1104"hMake CSS_ELEMENT_CHANNEL_SELECTOR a static final constant or non-public and provide accessors if needed.(¯·ìüÿÿÿÿ8¾¦ò‘¿1
 Œ
-java:S1104"jMake CSS_ELEMENT_CHANNEL_DESCRIPTOR a static final constant or non-public and provide accessors if needed.(öêøÿÿÿÿ8¿Ãƒë¾1
+java:S1104"jMake CSS_ELEMENT_CHANNEL_DESCRIPTOR a static final constant or non-public and provide accessors if needed.(öêøÿÿÿÿ8¾¦ò‘¿1
 r
-java:S1104"UMake SITE_NAME a static final constant or non-public and provide accessors if needed.(Ø×ß8¿Ãƒë¾1
+java:S1104"UMake SITE_NAME a static final constant or non-public and provide accessors if needed.(Ø×ß8¾¦ò‘¿1
 y
-java:S1104"\Make COOKIES_SELECTOR a static final constant or non-public and provide accessors if needed.(£•©Æ8¿Ãƒë¾1
+java:S1104"\Make COOKIES_SELECTOR a static final constant or non-public and provide accessors if needed.(£•©Æ8¾¦ò‘¿1
 „
-java:S1104"gMake CSS_ELEMENT_PLAYER_SELECTOR a static final constant or non-public and provide accessors if needed.(öŸÈ‘8¿Ãƒë¾1
+java:S1104"gMake CSS_ELEMENT_PLAYER_SELECTOR a static final constant or non-public and provide accessors if needed.(öŸÈ‘8¾¦ò‘¿1
 }
-java:S1104"`Make failedCookiesCounter a static final constant or non-public and provide accessors if needed.(ü”ı8¿Ãƒë¾1
+java:S1104"`Make failedCookiesCounter a static final constant or non-public and provide accessors if needed.(ü”ı8¾¦ò‘¿1
 z
-java:S1104"XMake threadNumber a static final constant or non-public and provide accessors if needed.(É½ş´şÿÿÿÿ8¿Ãƒë¾1
+java:S1104"XMake threadNumber a static final constant or non-public and provide accessors if needed.(É½ş´şÿÿÿÿ8¾¦ò‘¿1
 3
-java:S1700"Rename field "website"(ïØ¼Ì8ÀÃƒë¾1
-r	java:S116"QRename this field "DOMAIN" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾Âïôşÿÿÿÿ8ÎÃƒë¾1
-ˆ	java:S116"gRename this field "CSS_ELEMENT_CHANNEL_SELECTOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯·ìüÿÿÿÿ8ÎÃƒë¾1
-Š	java:S116"iRename this field "CSS_ELEMENT_CHANNEL_DESCRIPTOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öêøÿÿÿÿ8ÎÃƒë¾1
-p	java:S116"TRename this field "SITE_NAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ø×ß8ÏÃƒë¾1
-w	java:S116"[Rename this field "COOKIES_SELECTOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£•©Æ8ÏÃƒë¾1
-‚	java:S116"fRename this field "CSS_ELEMENT_PLAYER_SELECTOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öŸÈ‘8ÏÃƒë¾1
+java:S1700"Rename field "website"(ïØ¼Ì8¿¦ò‘¿1
+r	java:S116"QRename this field "DOMAIN" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾Âïôşÿÿÿÿ8Ä¦ò‘¿1
+ˆ	java:S116"gRename this field "CSS_ELEMENT_CHANNEL_SELECTOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯·ìüÿÿÿÿ8Ä¦ò‘¿1
+Š	java:S116"iRename this field "CSS_ELEMENT_CHANNEL_DESCRIPTOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öêøÿÿÿÿ8Ä¦ò‘¿1
+p	java:S116"TRename this field "SITE_NAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ø×ß8Ä¦ò‘¿1
+w	java:S116"[Rename this field "COOKIES_SELECTOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£•©Æ8Ä¦ò‘¿1
+‚	java:S116"fRename this field "CSS_ELEMENT_PLAYER_SELECTOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öŸÈ‘8Ä¦ò‘¿1

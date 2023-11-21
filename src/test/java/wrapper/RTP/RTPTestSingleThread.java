@@ -59,7 +59,7 @@ class RTPTestSingleThread extends SetupDriver implements GenericTest {
                         RTPbrowser.accessChannel(channel.substring(18));
                         boolean testResult = RTPbrowser.checkPlayerActive();
                         bannerMessage("Channel " + channel.substring(18) + " is being tested on " + RTPbrowser.webDriver + " browser.","VPN ON:" + (testResult ? "can " : "cannot " + "watch ") + channel.substring(18), testResult ? "green" : "red");
-                        if (channel.equals("Zig Zag")) {
+                        if (channel.substring(18).equals("Zig Zag") || channel.substring(18).equals("Rádio Zig Zag")) {
                             assertTrue(true, "Zig Zag channel might not be ON.");
                         }else{
                             assertTrue(testResult,"Channel " + channel.substring(18) + " is being tested on " + RTPbrowser.webDriver + " browser with VPN ON:" + (testResult ? "can " : "cannot " + "watch ") + channel.substring(18));

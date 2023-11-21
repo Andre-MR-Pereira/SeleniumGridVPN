@@ -1,10 +1,7 @@
 package classes.pages;
 
 import classes.Driver;
-import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -44,13 +41,19 @@ public class Website {
 
     public void clearCookiesPopup(){
         try{
-            Wait<WebDriver> wait = getWait(300,100);
+            Wait<WebDriver> wait = getWait(500,100);
             WebElement cookies = wait.until(
                     ExpectedConditions.visibilityOfElementLocated(By.className(COOKIES_SELECTOR))
             );
             cookies.click();
         }catch(TimeoutException e){
             failedCookiesCounter++;
+        }catch (ElementClickInterceptedException e) {
+            Wait<WebDriver> wait = getWait(500,100);
+            WebElement cookies = wait.until(
+                    ExpectedConditions.visibilityOfElementLocated(By.className(COOKIES_SELECTOR))
+            );
+            cookies.click();
         }
     }
 
