@@ -14,8 +14,6 @@ G
 src/test/java/Test.java,e\1\e1c1ce625dc608dd00fa9f0917d7630dbd9d8b0c
 Q
 !src/main/java/classes/Driver.java,a\e\aec7b6a40a3bcd4a106ddab96ce2ea0c7bb0eaf6
-`
-0src/test/java/wrapper/FirstParallelUnitTest.java,f\7\f7b1483b0b10d8e964078d37fba83b9a54f11e13
 V
 &src/test/java/wrapper/GenericTest.java,2\b\2be8e779f5d0e9cc64c9c20c8d5aaa641ba85337
 V

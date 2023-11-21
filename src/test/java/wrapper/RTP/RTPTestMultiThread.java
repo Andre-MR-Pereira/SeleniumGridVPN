@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class RTPTestMultiThread extends SetupDriver implements GenericTest {
     private RTP browser;
 
-    private static final int MAX_CONCURRENT_OPEN_BROWSERS = Integer.parseInt(System.getenv().getOrDefault("ConcurrentBrowsers", String.valueOf(2)));
+    private static final int MAX_CONCURRENT_OPEN_BROWSERS = Integer.parseInt(System.getenv().getOrDefault("ConcurrentBrowsers", String.valueOf(3)));
 
     @BeforeEach
     public void setup() throws MalformedURLException {

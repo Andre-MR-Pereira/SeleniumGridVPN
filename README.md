@@ -20,6 +20,7 @@ Like so:
 >   - true: The VPN connection is active
 >   - false: The VPN connection is disabled
 >4. [Optional Flag] Port: Environment variable that can be set to change the port Selenium will be listening on to. Defaults to 4444.
+>5. [Optional Flag] ConcurrentBrowsers: Environment variable that can be set to change how many concurrent browsers spawn.
 #### Main
 Add flags to the execution configuration by going to Run -> Edit Configurations -> Application -> And changing the CLI arguments field
 
@@ -32,7 +33,7 @@ Add VM flag to enable parallel tests execution by going to Run -> Edit Configura
 Example: -ea -Djunit.jupiter.execution.parallel.enabled=true -Djunit.jupiter.execution.parallel.config.strategy=fixed -Djunit.jupiter.execution.parallel.config.fixed.parallelism=12
 >![alt text](Assets/junitConcurrent.png)
 
-Add flags to the execution configuration by going to Run -> Edit Configurations -> JUnit -> And changing the environment variables field, like so:
+Add environment variables to the execution configuration by going to Run -> Edit Configurations -> JUnit -> And changing the environment variables field, like so:
 
 Example: ChromePath=Path to Chrome driver executable;FirefoxPath=Path to Firefox driver executable;VPN=false
 >![alt text](Assets/junitConfigs.png)
@@ -53,4 +54,4 @@ Example: ChromePath=Path to Chrome driver executable;FirefoxPath=Path to Firefox
 >
 >Attaching node to the hub:
 >
->**java -jar selenium-server-4.14.1.jar node --port 5555 --selenium-manager true**
+>**java -jar selenium-server-4.14.1.jar node --port 5555**
