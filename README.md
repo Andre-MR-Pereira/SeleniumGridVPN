@@ -16,11 +16,15 @@ Like so:
 #### Values
 >1. -c/--ChromePath: Path to the Chrome Drivers (chromedriver)
 >2. -f/--FirefoxPath: Path to the Firefox Drivers (geckodriver)
->3. -v/--VPN: Status of the VPN connection:
+>3. [Optional] -v/--VPN: Status of the VPN connection: (Defaults to false)
 >   - true: The VPN connection is active
 >   - false: The VPN connection is disabled
->4. [Optional Flag] Port: Environment variable that can be set to change the port Selenium will be listening on to. Defaults to 4444.
->5. [Optional Flag] ConcurrentBrowsers: Environment variable that can be set to change how many concurrent browsers spawn.
+>4. [Optional environment variable] Port: Change the port Selenium will be listening on to. Defaults to 4444.
+>5. [Optional environment variable] ConcurrentBrowsers: Can be set to change how many concurrent browsers spawn. Defaults to 3.
+>6. [Optional environment variable] Local: Indicates where selenium grid is running from: (Defaults to true)
+>   - true: Local machine will be used, assuming selenium grid in standalone mode is running on the designated port.
+>   - false: Docker machines will be used, assuming selenium grid in standalone mode is running on the designated port.
+>7. [Optional environment variable] RecordResults: Indicates if the selenium tests should be recorded (only available for Docker atm). Defaults to false.
 #### Main
 Add flags to the execution configuration by going to Run -> Edit Configurations -> Application -> And changing the CLI arguments field
 
@@ -38,6 +42,7 @@ Add environment variables to the execution configuration by going to Run -> Edit
 Example: ChromePath=Path to Chrome driver executable;FirefoxPath=Path to Firefox driver executable;VPN=false
 >![alt text](Assets/junitConfigs.png)
 ## Selenium Grid
+#### Locally
 >*Assuming the terminal is on the same dir as the jar file, otherwise use the appropriate path to the jar*
 
 >*Suffices for local testing on a single machine*
@@ -55,3 +60,20 @@ Example: ChromePath=Path to Chrome driver executable;FirefoxPath=Path to Firefox
 >Attaching node to the hub:
 >
 >**java -jar selenium-server-4.14.1.jar node --port 5555**
+
+#### Containerized
+Further information can be found here:
+
+[Selenium Grid Standalone with Dynamic Capabilities](https://hub.docker.com/r/selenium/standalone-docker "Selenium grid master image")
+
+[Documentation for Dynamic Grid](https://github.com/SeleniumHQ/docker-selenium/tree/trunk#dynamic-grid "Docker Selenium images documentation")
+
+>Pull dynamic grid docker image:
+> 
+>**docker pull selenium/standalone-docker**
+> 
+>Opening hub for selenium:
+>
+>**docker run --rm --name selenium-docker -p 4444:4444 ${PWD}/config.toml:/opt/bin/config.toml ${PWD}/assets:/opt/selenium/assets /var/run/docker.sock:/var/run/docker.sock selenium/standalone-docker:latest**
+
+And the tests only need to point to the correct port. In this case, 4444.

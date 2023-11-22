@@ -12,6 +12,10 @@ public class SetupDriver {
     protected static Driver chromeDriver;
     protected static Driver firefoxDriver;
 
+    protected static boolean containerized = Boolean.parseBoolean(System.getenv().getOrDefault("Local", String.valueOf(true)));
+
+    protected static boolean recording = Boolean.parseBoolean(System.getenv().getOrDefault("RecordResults", String.valueOf(false)));
+
     @BeforeAll
     public static void defaultDriversSetup(){
         chromeDriver = SetupDriver.driverSetup("Chrome");
@@ -31,8 +35,17 @@ public class SetupDriver {
     static ChromeOptions chromeBrowserSetup(){
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.setScriptTimeout(Duration.ofMinutes(5));
-        chromeOptions.setCapability("se:name", "Tests on Chrome");
-        chromeOptions.setCapability("platformName", "Windows");
+        if(containerized){
+            chromeOptions.setCapability("platformName", "linux");
+            chromeOptions.setCapability("se:name", "Tests on Chrome using docker.");
+        }else{
+            chromeOptions.setCapability("platformName", "windows");
+            chromeOptions.setCapability("se:name", "Tests on Chrome using local machine.");
+        }
+        chromeOptions.setCapability("browserName", "chrome");
+        chromeOptions.setCapability("se:recordVideo", recording);
+        chromeOptions.setCapability("se:timeZone", "GMT");
+        chromeOptions.setCapability("se:screenResolution", "1920x1080");
         chromeOptions.setCapability("se:VPNStatus", Boolean.parseBoolean(System.getenv("VPN")));
         return chromeOptions;
     }
@@ -40,8 +53,17 @@ public class SetupDriver {
     static FirefoxOptions firefoxBrowserSetup(){
         FirefoxOptions firefoxOptions = new FirefoxOptions();
         firefoxOptions.setScriptTimeout(Duration.ofMinutes(5));
-        firefoxOptions.setCapability("se:name", "Tests on Firefox");
-        firefoxOptions.setCapability("platformName", "Windows");
+        if(containerized){
+            firefoxOptions.setCapability("platformName", "linux");
+            firefoxOptions.setCapability("se:name", "Tests on Firefox using docker.");
+        }else{
+            firefoxOptions.setCapability("platformName", "windows");
+            firefoxOptions.setCapability("se:name", "Tests on Firefox using local machine.");
+        }
+        firefoxOptions.setCapability("browserName", "firefox");
+        firefoxOptions.setCapability("se:recordVideo", recording);
+        firefoxOptions.setCapability("se:timeZone", "GMT");
+        firefoxOptions.setCapability("se:screenResolution", "1920x1080");
         firefoxOptions.setCapability("se:VPNStatus", Boolean.parseBoolean(System.getenv("VPN")));
         return firefoxOptions;
     }
