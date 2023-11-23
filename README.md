@@ -9,7 +9,7 @@ Download selenium jar and selenium server jar files from https://www.selenium.de
 - **In IntelliJ, go to File -> Project Structure -> Libraries -> + -> Search for org.junit.jupiter:junit-jupiter:5.8.1 .**
 
 Like so:
->![alt text](Assets/junit_lib.PNG)
+>![Libraries](Assets/junit_lib.PNG "Example Library")
 
 ## Usage
 ### Flags
@@ -29,18 +29,18 @@ Like so:
 Add flags to the execution configuration by going to Run -> Edit Configurations -> Application -> And changing the CLI arguments field
 
 Example: *-ChromePath "Path to Chrome driver executable" -FirefoxPath "Path to Firefox driver executable" -VPN false*
->![alt text](Assets/runConfigs.PNG)
+>![Flags necessary to debug through Main application](Assets/runConfigs.PNG "Arguments necessary to configure Main application")
 
 #### JUnit Tests
 Add VM flag to enable parallel tests execution by going to Run -> Edit Configurations -> JUnit -> And changing the VM arguments field, like so:
 
 Example: -ea -Djunit.jupiter.execution.parallel.enabled=true -Djunit.jupiter.execution.parallel.config.strategy=fixed -Djunit.jupiter.execution.parallel.config.fixed.parallelism=12
->![alt text](Assets/junitConcurrent.png)
+>![Multithread Arguments](Assets/junitConcurrent.png "Arguments necessary to configure multithreaded Junit tests")
 
 Add environment variables to the execution configuration by going to Run -> Edit Configurations -> JUnit -> And changing the environment variables field, like so:
 
 Example: ChromePath=Path to Chrome driver executable;FirefoxPath=Path to Firefox driver executable;VPN=false
->![alt text](Assets/junitConfigs.png)
+>![Junit env vars](Assets/junitConfigs.png "Environmental variables necessary to configure Junit tests")
 ## Selenium Grid
 #### Locally
 >*Assuming the terminal is on the same dir as the jar file, otherwise use the appropriate path to the jar*

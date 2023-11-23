@@ -46,7 +46,7 @@ public class RTP extends Website {
                 }
             }
             if(element.getAttribute(CSS_ELEMENT_CHANNEL_DESCRIPTOR).substring(18).equalsIgnoreCase(channel)){
-                Wait<WebDriver> wait = getWait(1500,500);
+                Wait<WebDriver> wait = getWait(3500,500);
                 WebElement player = wait.until(ExpectedConditions.elementToBeClickable(element));
                 try {
                     if(webDriver.equals("Firefox")){
@@ -91,7 +91,7 @@ public class RTP extends Website {
     }
 
     private boolean checkIfPlayerStartStopBtnExists(){
-        Wait<WebDriver> wait = getWait(15000,1000);
+        Wait<WebDriver> wait = getWait(10000,1000);
         WebElement player = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(By.id("player_prog"))
         );

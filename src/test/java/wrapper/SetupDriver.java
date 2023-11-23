@@ -14,7 +14,7 @@ public class SetupDriver {
 
     protected static boolean containerized = Boolean.parseBoolean(System.getenv().getOrDefault("Local", String.valueOf(true)));
 
-    protected static boolean recording = Boolean.parseBoolean(System.getenv().getOrDefault("RecordResults", String.valueOf(false)));
+    protected static boolean recording = Boolean.parseBoolean(System.getenv().getOrDefault("RecordResults", String.valueOf(true)));
 
     @BeforeAll
     public static void defaultDriversSetup(){
@@ -35,7 +35,7 @@ public class SetupDriver {
     static ChromeOptions chromeBrowserSetup(){
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.setScriptTimeout(Duration.ofMinutes(5));
-        if(containerized){
+        if(!containerized){
             chromeOptions.setCapability("platformName", "linux");
             chromeOptions.setCapability("se:name", "Tests on Chrome using docker.");
         }else{
@@ -53,7 +53,7 @@ public class SetupDriver {
     static FirefoxOptions firefoxBrowserSetup(){
         FirefoxOptions firefoxOptions = new FirefoxOptions();
         firefoxOptions.setScriptTimeout(Duration.ofMinutes(5));
-        if(containerized){
+        if(!containerized){
             firefoxOptions.setCapability("platformName", "linux");
             firefoxOptions.setCapability("se:name", "Tests on Firefox using docker.");
         }else{
