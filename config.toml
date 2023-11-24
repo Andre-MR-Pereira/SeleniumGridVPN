@@ -1,3 +1,6 @@
+[node]
+max-sessions = 5
+
 [docker]
 # Configs have a mapping between the Docker image to use and the capabilities that need to be matched to
 # start a container with the given image.
@@ -6,7 +9,6 @@ configs = [
     "selenium/standalone-chrome:4.15.0-20231110", '{"browserName": "chrome"}',
     "selenium/standalone-edge:4.15.0-20231110", '{"browserName": "MicrosoftEdge"}'
 ]
-
 # URL for connecting to the docker daemon
 # 127.0.0.1 is used because internally the container uses socat when /var/run/docker.sock is mounted 
 url = "http://127.0.0.1:2375"

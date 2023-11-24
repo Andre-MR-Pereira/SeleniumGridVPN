@@ -1,8 +1,10 @@
 package wrapper.RTP;
 
+import classes.Driver;
 import classes.pages.RTP;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.TestInfo;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -13,6 +15,7 @@ import wrapper.SetupDriver;
 
 import java.net.MalformedURLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -22,17 +25,22 @@ import static org.junit.jupiter.api.Assertions.*;
 class RTPTestMultiThread extends SetupDriver implements GenericTest {
     private RTP browser;
 
+    private int threadId;
+
     private static final int MAX_CONCURRENT_OPEN_BROWSERS = Integer.parseInt(System.getenv().getOrDefault("ConcurrentBrowsers", String.valueOf(3)));
 
     @BeforeEach
-    public void setup() throws MalformedURLException {
-        String threadName = Thread.currentThread().getName();
-        bannerMessage(threadName,"M");
-        int threadId = Integer.parseInt(threadName.substring(threadName.lastIndexOf("-") + 1));
+    public void setup(TestInfo testInfo) throws MalformedURLException {
+        threadId = (int) Thread.currentThread().getId();
+        bannerMessage("Worker " + threadId,"M");
         if(threadId % 2 == 0) {
-            browser = new RTP(chromeDriver);
+            Driver chromeThreadDriver = chromeDriver;
+            chromeThreadDriver.setName("Chrome",testInfo.getDisplayName());
+            browser = new RTP(chromeThreadDriver);
         }else {
-            browser = new RTP(firefoxDriver);
+            Driver firefoxThreadDriver = firefoxDriver;
+            firefoxThreadDriver.setName("Firefox",testInfo.getDisplayName());
+            browser = new RTP(firefoxThreadDriver);
         }
         browser.threadNumber = threadId;
     }
@@ -48,13 +56,13 @@ class RTPTestMultiThread extends SetupDriver implements GenericTest {
         try{
             if (VPN_STATUS) {
                 assertTrue(browser.checkEpisodesActive());
-                bannerMessage(Thread.currentThread().getName(),"[" + browser.getBrowserType() + "] VPN ON: Recorded episodes are now available!","green");
+                bannerMessage("Worker " + threadId,"[" + browser.getBrowserType() + "] VPN ON: Recorded episodes are now available!","green");
             } else {
                 assertFalse(browser.checkEpisodesActive());
-                bannerMessage(Thread.currentThread().getName(),"[" + browser.getBrowserType() + "] VPN OFF: Cannot watch recorded episodes","red");
+                bannerMessage("Worker " + threadId,"[" + browser.getBrowserType() + "] VPN OFF: Cannot watch recorded episodes","red");
             }
         }catch (Exception e) {
-            fail(Thread.currentThread().getName() + " Exception type: " + e.getClass().getName() + " -> " + e.getMessage());
+            fail("Worker " + threadId + " Exception type: " + e.getClass().getName() + " -> " + e.getMessage());
         }finally{
             browser.teardown();
         }
@@ -63,27 +71,27 @@ class RTPTestMultiThread extends SetupDriver implements GenericTest {
     @ParameterizedTest
     @MethodSource("provideAllChannels")
     void accessAllChannelsInSeparateBrowsers(String channel){
-        bannerMessage(Thread.currentThread().getName(),"[" + browser.getBrowserType() + "]: " + channel + " is being analyzed","B");
+        bannerMessage("Worker " + threadId,"[" + browser.getBrowserType() + "]: " + channel + " is being analyzed","Y");
         bannerMessage("Browser:" + browser.webDriver, "Thread ID: " + browser.threadNumber,"B");
         try{
             if (VPN_STATUS) {
-                browser.accessChannel(channel.substring(18));
-                boolean testResult = browser.checkPlayerActive();
-                bannerMessage("Channel " + channel.substring(18) + " is being tested on " + browser.webDriver + " browser.","VPN ON:" + (testResult ? "can " : "cannot " + "watch ") + channel.substring(18), testResult ? "green" : "red");
-                if (channel.substring(18).equals("Zig Zag") || channel.substring(18).equals("Rádio Zig Zag")) {
+                browser.accessChannel(channel);
+                boolean testResult = browser.checkPlayerActive(MAX_CONCURRENT_OPEN_BROWSERS);
+                bannerMessage("Channel " + channel + " is being tested on " + browser.webDriver + " browser.","VPN ON:" + (testResult ? "can " : "cannot " + "watch ") + channel, testResult ? "green" : "red");
+                if (channel.equals("Zig Zag") || channel.equals("Rádio Zig Zag")) {
                     assertTrue(true, "Zig Zag channel might not be ON.");
                 }else{
-                    assertTrue(testResult,"Channel " + channel.substring(18) + " is being tested on " + browser.webDriver + " browser with VPN ON:" + (testResult ? "can " : "cannot " + "watch ") + channel.substring(18));
+                    assertTrue(testResult,"Channel " + channel + " is being tested on " + browser.webDriver + " browser with VPN ON:" + (testResult ? "can " : "cannot " + "watch ") + channel);
                 }
             } else {
-                browser.accessChannel(channel.substring(18));
-                boolean testResult = browser.checkPlayerActive();
-                bannerMessage("Channel " + channel.substring(18) + " is being tested on " + browser.webDriver + " browser.","VPN OFF:" + (testResult ? "can " : "cannot " + "watch ") + channel.substring(18), testResult ? "green" : "red");
+                browser.accessChannel(channel);
+                boolean testResult = browser.checkPlayerActive(MAX_CONCURRENT_OPEN_BROWSERS);
+                bannerMessage("Channel " + channel + " is being tested on " + browser.webDriver + " browser.","VPN OFF:" + (testResult ? "can " : "cannot " + "watch ") + channel, testResult ? "green" : "red");
                 assertTrue(true);
             }
         }catch (Exception e){
             bannerMessage("Thread ID: " + browser.threadNumber, "Crashed" ,"R");
-            fail(Thread.currentThread().getName() + " Exception type: " + e.getClass().getName() + " -> " + e.getMessage());
+            fail("Worker " + threadId + " Exception type: " + e.getClass().getName() + " -> " + e.getMessage());
         }finally{
             browser.teardown();
         }
@@ -92,33 +100,34 @@ class RTPTestMultiThread extends SetupDriver implements GenericTest {
     @ParameterizedTest
     @MethodSource("provideChannelSelection")
     void accessAllChannelsSplittingEqually(List<String> channels){
+        bannerMessage("Worker " + threadId, Arrays.toString(channels.toArray()),"B");
         try{
             if (VPN_STATUS) {
                 channels.forEach(channel -> {
-                    bannerMessage(Thread.currentThread().getName(),"[" + browser.getBrowserType() + "]: " + channel + " is being analyzed","B");
-                    browser.accessChannel(channel.substring(18));
-                    boolean testResult = browser.checkPlayerActive();
-                    bannerMessage("Channel " + channel.substring(18) + " is being tested on " + browser.webDriver + " browser.","VPN ON:" + (testResult ? "can " : "cannot " + "watch ") + channel.substring(18), testResult ? "green" : "red");
-                    if (channel.substring(18).equals("Zig Zag") || channel.substring(18).equals("Rádio Zig Zag")) {
+                    bannerMessage("Worker " + threadId,"[" + browser.getBrowserType() + "]: " + channel + " is being analyzed","Y");
+                    browser.accessChannel(channel);
+                    boolean testResult = browser.checkPlayerActive(MAX_CONCURRENT_OPEN_BROWSERS);
+                    bannerMessage("Channel " + channel + " is being tested on " + browser.webDriver + " browser.","VPN ON:" + (testResult ? "can " : "cannot " + "watch ") + channel, testResult ? "green" : "red");
+                    if (channel.equals("Zig Zag") || channel.equals("Rádio Zig Zag")) {
                         assertTrue(true, "Zig Zag channel might not be ON.");
                     }else{
-                        assertTrue(testResult,"Channel " + channel.substring(18) + " is being tested on " + browser.webDriver + " browser with VPN ON:" + (testResult ? "can " : "cannot " + "watch ") + channel.substring(18));
+                        assertTrue(testResult,"Channel " + channel + " is being tested on " + browser.webDriver + " browser with VPN ON:" + (testResult ? "can " : "cannot " + "watch ") + channel);
                     }
                     browser.returnMainPage();
                 });
             } else {
                 channels.forEach(channel -> {
-                    bannerMessage(Thread.currentThread().getName(),"[" + browser.getBrowserType() + "]: " + channel + " is being analyzed","B");
-                    browser.accessChannel(channel.substring(18));
-                    boolean testResult = browser.checkPlayerActive();
-                    bannerMessage("Channel " + channel.substring(18) + " is being tested on " + browser.webDriver + " browser.","VPN OFF:" + (testResult ? "can " : "cannot " + "watch ") + channel.substring(18), testResult ? "green" : "red");
+                    bannerMessage("Worker " + threadId,"[" + browser.getBrowserType() + "]: " + channel + " is being analyzed","Y");
+                    browser.accessChannel(channel);
+                    boolean testResult = browser.checkPlayerActive(MAX_CONCURRENT_OPEN_BROWSERS);
+                    bannerMessage("Channel " + channel + " is being tested on " + browser.webDriver + " browser.","VPN OFF:" + (testResult ? "can " : "cannot " + "watch ") + channel, testResult ? "green" : "red");
                     assertTrue(true);
                     browser.returnMainPage();
                 });
             }
         }catch (Exception e){
             bannerMessage("Thread ID: " + browser.threadNumber, "Crashed" ,"R");
-            fail(Thread.currentThread().getName() + " Exception type: " + e.getClass().getName() + " -> " + e.getMessage());
+            fail("Worker " + threadId + " Exception type: " + e.getClass().getName() + " -> " + e.getMessage());
         }finally{
             browser.teardown();
         }
@@ -128,10 +137,15 @@ class RTPTestMultiThread extends SetupDriver implements GenericTest {
         RTP channelBrowserLister = new RTP(firefoxDriver);
         List<String> channels = channelBrowserLister.channelListing();
         channelBrowserLister.teardown();
+        int i = 0;
+        for (String channel : channels)
+        {
+            channels.set(i, channel.substring(18));
+            i++;
+        }
         List<List<String>> selection = new ArrayList<>();
         int channelCount = channels.size()/MAX_CONCURRENT_OPEN_BROWSERS;
         int sparedCount = channels.size()%MAX_CONCURRENT_OPEN_BROWSERS;
-        int i;
         for(i = 0; i < (MAX_CONCURRENT_OPEN_BROWSERS*channelCount); i+=channelCount){
             selection.add(channels.subList(i,i+channelCount));
         }
@@ -145,6 +159,12 @@ class RTPTestMultiThread extends SetupDriver implements GenericTest {
         RTP channelBrowserLister = new RTP(firefoxDriver);
         List<String> channels = channelBrowserLister.channelListing();
         channelBrowserLister.teardown();
+        int i = 0;
+        for (String channel : channels)
+        {
+            channels.set(i, channel.substring(18));
+            i++;
+        }
         return channels.stream().limit(channels.size());
     }
 }

@@ -40,23 +40,21 @@ public class Driver {
     }
 
     public WebDriver setSiteAndGetWebDriver(String site) throws MalformedURLException {
+        WebDriver driver;
         if(mode.equalsIgnoreCase("Standalone")){
-            WebDriver driver = webBrowser.equals("Chrome") ?
+            driver = webBrowser.equals("Chrome") ?
                     new RemoteWebDriver(new URL("http://localhost:"+PORT), chromeOptions):
                     new RemoteWebDriver(new URL("http://localhost:"+PORT), firefoxOptions);
-            driver.get(site);
-            driver.manage().window().maximize();
-            return driver;
         }else if(mode.equalsIgnoreCase("Local")){
-            WebDriver driver = webBrowser.equals("Chrome") ?
+            driver = webBrowser.equals("Chrome") ?
                     new ChromeDriver():
                     new FirefoxDriver();
-            driver.get(site);
-            driver.manage().window().maximize();
-            return driver;
         }else{
             throw new IllegalArgumentException("Driver mode is not recognized");
         }
+        driver.get(site);
+        driver.manage().window().maximize();
+        return driver;
     }
 
     private void setDrivers(String navigator, String driverPath){
@@ -68,6 +66,16 @@ public class Driver {
             webBrowser = "Chrome";
         }else{
             throw new IllegalArgumentException("Unknown/Unsupported browser");
+        }
+    }
+
+    public void setName(String navigator, String name){
+        if(navigator.equals("Chrome")){
+            chromeOptions.setCapability("se:name", name);
+        }else if (navigator.equals("Firefox")){
+            firefoxOptions.setCapability("se:name", name);
+        }else{
+            System.out.println("No changes to the Selenium node where made");
         }
     }
 }

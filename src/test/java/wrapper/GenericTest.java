@@ -3,6 +3,7 @@ package wrapper;
 import classes.pages.Website;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.TestInfo;
 
 import java.net.MalformedURLException;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ public interface GenericTest {
     boolean VPN_STATUS = Boolean.parseBoolean(System.getenv("VPN"));
 
     @BeforeEach
-    void setup() throws MalformedURLException;
+    void setup(TestInfo testInfo) throws MalformedURLException;
 
     @AfterEach
     void teardown() throws MalformedURLException;

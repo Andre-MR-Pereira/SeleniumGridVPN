@@ -5,6 +5,7 @@ import classes.pages.Website;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 import wrapper.GenericTest;
 import wrapper.SetupDriver;
 
@@ -18,9 +19,10 @@ class RTPTestSingleThread extends SetupDriver implements GenericTest {
     private List<Website> listBrowsers = new ArrayList<>();
 
     @BeforeEach
-    public void setup() throws MalformedURLException {
+    public void setup(TestInfo testInfo) throws MalformedURLException {
+        bannerMessage(testInfo.getDisplayName(),"B");
         listBrowsers.add(new RTP(chromeDriver));
-        listBrowsers.add(new RTP(firefoxDriver));
+        //listBrowsers.add(new RTP(firefoxDriver));
     }
 
     @AfterEach
@@ -57,7 +59,7 @@ class RTPTestSingleThread extends SetupDriver implements GenericTest {
                 if (VPN_STATUS) {
                     channels.forEach(channel -> {
                         RTPbrowser.accessChannel(channel.substring(18));
-                        boolean testResult = RTPbrowser.checkPlayerActive();
+                        boolean testResult = RTPbrowser.checkPlayerActive(1);
                         bannerMessage("Channel " + channel.substring(18) + " is being tested on " + RTPbrowser.webDriver + " browser.","VPN ON:" + (testResult ? "can " : "cannot " + "watch ") + channel.substring(18), testResult ? "green" : "red");
                         if (channel.substring(18).equals("Zig Zag") || channel.substring(18).equals("Rádio Zig Zag")) {
                             assertTrue(true, "Zig Zag channel might not be ON.");
@@ -71,7 +73,7 @@ class RTPTestSingleThread extends SetupDriver implements GenericTest {
                     channels.forEach(channel -> {
                         RTPbrowser.accessChannel(channel.substring(18));
                         bannerMessage("Cheking if player active","Y");
-                        boolean testResult = RTPbrowser.checkPlayerActive();
+                        boolean testResult = RTPbrowser.checkPlayerActive(1);
                         bannerMessage("Channel " + channel.substring(18) + " is being tested on " + RTPbrowser.webDriver + " browser.","VPN OFF:" + (testResult ? "can " : "cannot " + "watch ") + channel.substring(18), testResult ? "green" : "red");
                         RTPbrowser.returnMainPage();
                         if (testResult) {

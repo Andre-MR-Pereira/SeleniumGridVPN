@@ -1,9 +1,10 @@
 
 W
-java:S1141n"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8ü·ÈÛ¿1
+java:S1141n"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8„›œ‰À1
+r	java:S117T"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öØ·úÿÿÿÿ8„›œ‰À1
 t
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 26 to the 15 allowed.(˜¤›Åüÿÿÿÿ8†¹ÈÛ¿1
-G	java:S106v"+Replace this use of System.out by a logger.(ìÿÒı8›¹ÈÛ¿1
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 26 to the 15 allowed.(˜¤›Åüÿÿÿÿ8ü›œ‰À1
+G	java:S106v"+Replace this use of System.out by a logger.(ìÿÒı8…œœ‰À1
 Q
 java:S1128
-"/Remove this unused import 'java.time.Duration'.(ëá¯‰üÿÿÿÿ8³³ÉÛ¿1
+"/Remove this unused import 'java.time.Duration'.(ëá¯‰üÿÿÿÿ8°¬­‰À1

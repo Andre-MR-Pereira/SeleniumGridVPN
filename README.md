@@ -25,6 +25,7 @@ Like so:
 >   - true: Local machine will be used, assuming selenium grid in standalone mode is running on the designated port.
 >   - false: Docker machines will be used, assuming selenium grid in standalone mode is running on the designated port.
 >7. [Optional environment variable] RecordResults: Indicates if the selenium tests should be recorded (only available for Docker atm). Defaults to false.
+>8. [Optional environment variable] Headless: Indicates if the selenium tests need the UI open. When headless, no recordings are saved. Defaults to false.
 #### Main
 Add flags to the execution configuration by going to Run -> Edit Configurations -> Application -> And changing the CLI arguments field
 
@@ -68,12 +69,14 @@ Further information can be found here:
 
 [Documentation for Dynamic Grid](https://github.com/SeleniumHQ/docker-selenium/tree/trunk#dynamic-grid "Docker Selenium images documentation")
 
+[Toml file specs](https://www.selenium.dev/documentation/grid/configuration/toml_options "Toml file documentation")
+
 >Pull dynamic grid docker image:
 > 
 >**docker pull selenium/standalone-docker**
 > 
 >Opening hub for selenium:
 >
->**docker run --rm --name selenium-docker -p 4444:4444 ${PWD}/config.toml:/opt/bin/config.toml ${PWD}/assets:/opt/selenium/assets /var/run/docker.sock:/var/run/docker.sock selenium/standalone-docker:latest**
+>**docker run --rm --name selenium-docker -p 4444:4444 --shm-size="3g" ${PWD}/config.toml:/opt/bin/config.toml ${PWD}/assets:/opt/selenium/assets /var/run/docker.sock:/var/run/docker.sock selenium/standalone-docker:latest**
 
 And the tests only need to point to the correct port. In this case, 4444.

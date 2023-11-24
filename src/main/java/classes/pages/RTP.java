@@ -46,7 +46,7 @@ public class RTP extends Website {
                 }
             }
             if(element.getAttribute(CSS_ELEMENT_CHANNEL_DESCRIPTOR).substring(18).equalsIgnoreCase(channel)){
-                Wait<WebDriver> wait = getWait(3500,500);
+                Wait<WebDriver> wait = getWait(3000,1000);
                 WebElement player = wait.until(ExpectedConditions.elementToBeClickable(element));
                 try {
                     if(webDriver.equals("Firefox")){
@@ -75,23 +75,23 @@ public class RTP extends Website {
         for(WebElement element : episodesList){
             if(element.getText().equals("The Voice Portugal")){
                 element.click();
-                return checkPlayerActive();
+                return checkPlayerActive(1);
             }
         }
         return false;
     }
 
-    public boolean checkPlayerActive(){
+    public boolean checkPlayerActive(int concurrent_browsers){
+        Wait<WebDriver> wait = getWait(2000*Math.ceilDiv(concurrent_browsers,3),500);
         try {
-            return checkIfPlayerStartStopBtnExists();
+            return checkIfPlayerStartStopBtnExists(wait);
         }catch (TimeoutException | ElementClickInterceptedException e){
             closeIframe();
-            return checkIfPlayerStartStopBtnExists();
+            return checkIfPlayerStartStopBtnExists(wait);
         }
     }
 
-    private boolean checkIfPlayerStartStopBtnExists(){
-        Wait<WebDriver> wait = getWait(10000,1000);
+    private boolean checkIfPlayerStartStopBtnExists(Wait<WebDriver> wait){
         WebElement player = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(By.id("player_prog"))
         );
