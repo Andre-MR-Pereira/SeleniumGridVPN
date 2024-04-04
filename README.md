@@ -9,6 +9,7 @@ Download selenium jar and selenium server jar files from https://www.selenium.de
 - **In IntelliJ, go to File -> Project Structure -> Libraries -> + -> Search for org.junit.jupiter:junit-jupiter:5.8.1 .**
 
 Like so:
+
 ![junit_lib](https://github.com/Andre-MR-Pereira/SeleniumGridVPN/assets/148334469/ff260e21-e06d-4c8d-9e01-b82aa63453ed)
 
 ## Usage
