@@ -9,7 +9,7 @@ Download selenium jar and selenium server jar files from https://www.selenium.de
 - **In IntelliJ, go to File -> Project Structure -> Libraries -> + -> Search for org.junit.jupiter:junit-jupiter:5.8.1 .**
 
 Like so:
->![Libraries](Assets/junit_lib.PNG "Example Library")
+![junit_lib](https://github.com/Andre-MR-Pereira/SeleniumGridVPN/assets/148334469/ff260e21-e06d-4c8d-9e01-b82aa63453ed)
 
 ## Usage
 ### Flags
@@ -30,18 +30,19 @@ Like so:
 Add flags to the execution configuration by going to Run -> Edit Configurations -> Application -> And changing the CLI arguments field
 
 Example: *-ChromePath "Path to Chrome driver executable" -FirefoxPath "Path to Firefox driver executable" -VPN false*
->![Flags necessary to debug through Main application](Assets/runConfigs.PNG "Arguments necessary to configure Main application")
+![runConfigs](https://github.com/Andre-MR-Pereira/SeleniumGridVPN/assets/148334469/2f9f6f49-4827-48e4-a861-a9a58f929e0f)
 
 #### JUnit Tests
 Add VM flag to enable parallel tests execution by going to Run -> Edit Configurations -> JUnit -> And changing the VM arguments field, like so:
+![junitConcurrent](https://github.com/Andre-MR-Pereira/SeleniumGridVPN/assets/148334469/15bedde6-0135-43c5-86d5-335348e72ba3)
 
 Example: -ea -Djunit.jupiter.execution.parallel.enabled=true -Djunit.jupiter.execution.parallel.config.strategy=fixed -Djunit.jupiter.execution.parallel.config.fixed.parallelism=12
->![Multithread Arguments](Assets/junitConcurrent.png "Arguments necessary to configure multithreaded Junit tests")
 
 Add environment variables to the execution configuration by going to Run -> Edit Configurations -> JUnit -> And changing the environment variables field, like so:
 
 Example: ChromePath=Path to Chrome driver executable;FirefoxPath=Path to Firefox driver executable;VPN=false
->![Junit env vars](Assets/junitConfigs.png "Environmental variables necessary to configure Junit tests")
+![junitConfigs](https://github.com/Andre-MR-Pereira/SeleniumGridVPN/assets/148334469/ebc24d0b-cc89-4ad3-8588-9df1e9197a7b)
+
 ## Selenium Grid
 #### Locally
 >*Assuming the terminal is on the same dir as the jar file, otherwise use the appropriate path to the jar*
@@ -77,6 +78,6 @@ Further information can be found here:
 > 
 >Opening hub for selenium:
 >
->**docker run --rm --name selenium-docker -p 4444:4444 --shm-size="3g" ${PWD}/config.toml:/opt/bin/config.toml ${PWD}/assets:/opt/selenium/assets /var/run/docker.sock:/var/run/docker.sock selenium/standalone-docker:latest**
+>**docker run --rm --name selenium-docker -p 4444:4444 --shm-size="3g" -v ${PWD}/config.toml:/opt/bin/config.toml -v ${PWD}/assets:/opt/selenium/assets -v /var/run/docker.sock:/var/run/docker.sock selenium/standalone-docker:latest**
 
 And the tests only need to point to the correct port. In this case, 4444.
